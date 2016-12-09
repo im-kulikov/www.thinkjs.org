@@ -1,0 +1,20 @@
+version: '2'
+services:
+  node:
+    container_name: thinkjs-node
+    restart: always
+    image: node:alpine
+    expose: [ "7777" ]
+    volumes: [ "./:/webapps" ]
+    command: "node /webapps/www/production.js"
+    networks:
+      default:
+        ipv4_address: 172.30.0.2
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.30.0.1/16
+          gateway: 172.30.0.254
