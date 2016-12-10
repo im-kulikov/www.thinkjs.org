@@ -4,7 +4,7 @@ services:
     container_name: thinkjs-node
     restart: always
     image: node:alpine
-    expose: [ "7777" ]
+    expose: [ "8360" ]
     volumes: [ "./:/webapps" ]
     command: "node /webapps/www/production.js"
     networks:
