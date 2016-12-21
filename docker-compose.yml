@@ -6,7 +6,7 @@ services:
     image: node:alpine
     expose: [ "7777" ]
     volumes: [ "./:/webapps" ]
-    command: "pm2 start -i 0 --name 'thinkjs' /webapps/www/production.js"
+    command: "/webapps/node_modules/.bin/pm2 start -i 0 --name 'thinkjs' /webapps/www/production.js"
     networks:
       default:
         ipv4_address: 172.30.0.2
