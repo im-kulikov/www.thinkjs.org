@@ -5,11 +5,19 @@ services:
     restart: always
     image: node:alpine
     expose: [ "7777" ]
+    ports:
+      - 7777:7777
+    links:
+      - cache:cache
     volumes: [ "./:/webapps" ]
-    command: "node --harmony /webapps/www/production.js"
-    networks:
-      default:
-        ipv4_address: 172.30.0.2
+    command: "/webapps/node_modules/.bin/pm2 start /webapps/pm2.json --no-daemon" #--name socket --no-daemon -i 0 /webapps/www/production.js
+    # networks:
+    #   default:
+    #     ipv4_address: 172.30.0.2
+  cache:
+    container_name: thinkjs-cache
+    restart: always
+    image: redis:alpine
 
 networks:
   default:

@@ -1,5 +1,5 @@
 export default {
-  log_request: false,
-  resouce_on: false
-  //proxy_on: true
+  log_request: true,
+  resouce_on: true,
+  proxy_on: true
 }
