@@ -18,6 +18,8 @@ export default class extends think.controller.base {
       hasVersion: false,
       lang: this.http.lang()
     });
+
+    this.expires(86400)
   }
   /**
    * generate toc name
